@@ -1,0 +1,136 @@
+//----variables----
+
+//Fonts (size and family)
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+$font-size_card: 18px;
+$font-type: 'Rubik', sans-serif;
+
+//Colors per sessions
+$color-profile: hsl(246, 80%, 60%);
+$color-work: hsl(15, 100%, 70%);
+$color-play:hsl(195, 74%, 62%);
+$color-study: hsl(348, 100%, 68%);
+$color-exercise: hsl(145, 58%, 55%);
+$color-social: hsl(264, 64%, 52%);
+$color-self_care: hsl(43, 84%, 65%);
+
+//Colors of complement
+$color-background: hsl(226, 43%, 10%);
+$color-fill: hsl(235, 46%, 20%);
+$color-text_profile: hsl(235, 45%, 61%);
+$color-text_sessions: hsl(236, 100%, 87%);
+$color-text: white;
+$color-attribution: hsl(228, 45%, 44%);
+
+//global standards
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: $color-background;
+    font-family: $font-type;
+    font-size: $font-size_card;
+}
+//molde for cards
+@mixin cards{
+    width: 90%;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__background{
+        width: 100%;
+        height: 55px;
+        border-radius: 12px;
+        &--icon{
+            width: 70px;
+            position: relative;
+            left: 74%;
+            object-fit: cover;
+            height: 50px;
+        }
+    }
+    &__statistics{
+        width: 100%;
+        height: 120px;
+        position: relative;
+        bottom: 20px;
+        border-radius: 12px;
+        padding: 20px;
+        background-color: $color-fill;
+        div{
+            display: flex;
+            justify-content:space-between;
+            p{
+                color: $color-text;
+                font-weight: 500;
+            }
+        }
+        &--ellipsis{
+            width: 18px;
+        }
+        &--data{
+            display: flex;
+            margin-top: 15px;
+            justify-content: space-between;
+            align-items: center;
+            .hours{
+                font-size: 1.8rem;
+                color: $color-text;
+                font-weight: 300;
+            }
+            .lastweek{
+                color: $color-text_sessions;
+                font-size: .9rem;
+            }
+        }
+    }
+}
+
+//model for profile
+
+@mixin profile {
+    width: 90%;
+    height: 200px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    &__info{
+        width: 100%;
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        color: $color-text;
+        font-weight: 300;
+        img{
+            width: 80px;
+            border: 3px solid $color-text;
+            border-radius: 40px;
+            margin-right: 18px;
+        }
+        .report{
+            font-size: 1rem;
+            color: $color-text_sessions;
+            font-weight: 400;
+        }
+        .name{
+            font-weight: 300;
+            font-size: 1.5rem;
+        }
+    }
+    &__date{
+        display: flex;
+        justify-content: space-around;
+        background-color: $color-fill;
+        li{
+            list-style: none;
+            color: $color-text_profile;
+            margin-top: 16px;
+            font-weight: 400;
+        }
+    }
+}

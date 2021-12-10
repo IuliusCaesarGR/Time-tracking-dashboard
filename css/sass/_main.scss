@@ -1,0 +1,59 @@
+main{
+    margin: 50px 0;
+    width: 100vw;
+    height: 1300px;
+    display:  grid;
+    grid-template: 220px repeat(6, 180px) / repeat(1, 1fr);
+    justify-items: center;
+}
+.attribution { 
+  font-size: 16px; 
+  text-align: center; 
+  a{
+    color: $color-attribution; 
+  }
+}
+.profile{
+  @include profile;
+  background-color: $color-fill;
+  &__info{
+    background-color: $color-profile
+  }
+}
+.work{
+   @include cards;
+   &__background{
+       background-color: $color-work;
+   }
+}
+ 
+.play{
+  @include cards;
+  &__background{
+    background-color: $color-play;
+  }
+}
+.study{
+    @include cards;
+    &__background{
+    background-color: $color-study;
+  }
+}
+.exercise{
+    @include cards;
+    &__background{
+    background-color: $color-exercise;
+  }
+}
+.social{
+    @include cards;
+    &__background{
+    background-color: $color-social;
+  }
+}
+.self{
+    @include cards;
+    &__background{
+    background-color: $color-self_care;
+  }
+} 
