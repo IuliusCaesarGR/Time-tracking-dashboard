@@ -1,20 +1,49 @@
+//Container
+
 main{
     margin: 50px 0;
     width: 100vw;
     height: 1300px;
     display:  grid;
     grid-template: 220px repeat(6, 180px) / repeat(1, 1fr);
+    grid-template-areas: 
+        "profile"
+        "work"
+        "play"
+        "study"
+        "exercise"
+        "social" 
+        "self" ;
     justify-items: center;
+  @media (min-width: 600px){
+    width: 95%;
+    max-width: 768px;
+    height: auto;
+    margin: 60px auto;
+    grid-template:  225px repeat(3, 185px) / repeat(2, 1fr);
+    grid-template-areas: 
+    "profile profile"
+    "work play"
+    "study exercise"
+    "social self" ;
+    }
 }
+
+//footer
 .attribution { 
   font-size: 16px; 
   text-align: center; 
   a{
     color: $color-attribution; 
   }
+  margin-bottom: 30px
 }
+
+//Cards
+
 .profile{
   @include profile;
+  grid-area: profile;
   background-color: $color-fill;
   &__info{
     background-color: $color-profile
@@ -22,6 +51,7 @@ main{
 }
 .work{
    @include cards;
+   grid-area: work;
    &__background{
        background-color: $color-work;
    }
@@ -29,30 +59,35 @@ main{
  
 .play{
   @include cards;
+  grid-area: play;
   &__background{
     background-color: $color-play;
   }
 }
 .study{
     @include cards;
+    grid-area: study;
     &__background{
     background-color: $color-study;
   }
 }
 .exercise{
     @include cards;
+    grid-area: exercise;
     &__background{
     background-color: $color-exercise;
   }
 }
 .social{
     @include cards;
+    grid-area: social;
     &__background{
     background-color: $color-social;
   }
 }
 .self{
     @include cards;
+    grid-area: self;
     &__background{
     background-color: $color-self_care;
   }
