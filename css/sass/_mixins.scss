@@ -27,7 +27,7 @@
         border-radius: 12px;
         padding: 25px 20px;
         background-color: $color-fill;
-        div{
+        div{ //title and image
             display: flex;
             justify-content: space-between;
             p{
@@ -37,10 +37,13 @@
         }
         &--ellipsis{
             width: 18px;
+            &:hover{
+                cursor: pointer;
+            }
         }
         &--data{
             display: flex;
-            margin-top: 15px;
+            margin-top: 20px;
             justify-content: space-between;
             align-items: center;
             .hours{
@@ -53,17 +56,50 @@
                 font-size: .9rem;
             }
         }
+        &:hover{
+            cursor: pointer;
+            background-color: $color-fill-active;
+        }
+    }
+    //display desktop
+    @media (min-width: 1024px){
+        width: 100%;
+        max-width: 260px;
+        height: 100%;
+        &__background{
+            height: 60px;
+            &--icon{
+                width: 65px;
+                transform: translate(-80px, 0px);
+            }
+        }
+        &__statistics{
+            height: 195px;
+            padding: 25px 30px;
+            p{
+                margin-bottom: 15px;
+            }
+            &--data{
+                display: inline-block;
+                .hours{
+                    font-size: 2.7rem;
+                    margin-bottom: 10px;
+                }
+            }
+        }
     }
 }
 
 //Profile Mold
 
 @mixin profile {
-    width: 90%;
-    max-width: 420px;
     height: 200px;
     border-radius: 12px;
     margin-bottom: 20px;
+    @media (max-width: 599px){
+        max-width: 420px;
+        width: 90%;
+    }
     &__info{
         width: 100%;
         height: 70%;
@@ -95,15 +131,28 @@
         justify-content: space-around;
         background-color: $color-fill;
         border-radius: 12px;
-        li{
-            list-style: none;
+        button{
             color: $color-text_profile;
+            width: 70px;
+            padding-right: 5px;
             margin-top: 20px;
             font-weight: 400;
+            background-color:  $color-fill;
+            border: none;
+            font-size: $font-size_card;
+            &:hover{
+                color: $color-text;
+                cursor: pointer;
+            }
+            &:active{
+                    color: $color-text;
+                }
         }
     }
+    //Media Queries tablet
     @media (min-width: 600px){
-        min-width: 95%;
+        width: 95%;
+        max-width: 768px;
         display: flex;
         &__info{
             height: 100%;
@@ -126,9 +175,53 @@
             width: 50%;
             text-align: center;
             padding: 12px 0;
-            li{
+            align-items: center;
+            button{
                 margin-top: 0px;
+                
             }
+        }
+    }
+    //display desktop
+    @media (min-width: 1024px){
+        max-width: 250px;
+        width: 100%;
+        display: inline-block;
+        height: 95%;
+        margin: 0;
+        &__info{
+            width: 100%;
+            height: 335px;
+            display: inline-block;
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+            border-radius: 12px;
+            img{
+                width: 80px;
+                margin-bottom: 30px;
+            }
+            .name{
+                font-size: 2.2rem;
+                span{
+                    display: block;
+                    margin-top: 7px;
+                }
+            }
+        }
+        &__date{
+            width: 100%;
+            height: 165px;
+            text-align: left;
+            position: relative;
+            bottom: 20px;
+            z-index: 1;
+            padding: 40px 0px 0px 30px;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+        button{
+            text-align: start;
         }
     }
 }
