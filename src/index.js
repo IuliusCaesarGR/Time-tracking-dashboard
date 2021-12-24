@@ -1,4 +1,3 @@
-"use strict"
 //Get Elements
 const buttons = document.querySelectorAll('button');
 const arraybuttons = [...buttons];
@@ -13,7 +12,7 @@ function changeColor(option, remove1, remove2){
     remove1.style.color = 'hsl(235, 45%, 61%)';
     remove2.style.color = 'hsl(235, 45%, 61%)';
 }
-//Hear which option was pressed
+//listen which option was pressed
 arraybuttons.forEach( (id) => {
     id.addEventListener('click', selector);
     function selector(){
