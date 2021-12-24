@@ -116,9 +116,6 @@ main {
   color: white;
   cursor: pointer;
 }
-.profile__date button:active {
-  color: white;
-}
 @media (min-width: 600px) {
   .profile {
     width: 95%;

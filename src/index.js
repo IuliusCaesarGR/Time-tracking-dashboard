@@ -1,3 +1,5 @@
+"use strict"
+//Get Elements
 const buttons = document.querySelectorAll('button');
 const arraybuttons = [...buttons];
 const hours = document.querySelectorAll('.hours');
@@ -5,20 +7,28 @@ const arrayhours = [...hours];
 const last = document.querySelectorAll('.lastweek');
 const arraylast = [...last];
 
-
-
-arraybuttons.forEach( (ide) => {
-    ide.addEventListener('click', selector);
+//Change color of the option
+function changeColor(option, remove1, remove2){
+    option.style.color = 'white';
+    remove1.style.color = 'hsl(235, 45%, 61%)';
+    remove2.style.color = 'hsl(235, 45%, 61%)';
+}
+//Hear which option was pressed
+arraybuttons.forEach( (id) => {
+    id.addEventListener('click', selector);
     function selector(){
-        switch (ide.id) {
+        switch (id.id) {
             case 'Daily':
                 time('daily')
+                changeColor(id, arraybuttons[1], arraybuttons[2])
                 break;
             case 'Weekly':
                 time('weekly')
+                changeColor(id, arraybuttons[0], arraybuttons[2])
                 break;
             case 'Monthly':
                 time('monthly')
+                changeColor(id, arraybuttons[0], arraybuttons[1])
                 break;
             default:
                 console.log('error')
@@ -26,41 +36,39 @@ arraybuttons.forEach( (ide) => {
         }
     }
 })
-let moment = (get)=> {
-const API = './src/data.json';
-const answer = [0,1,2,3,4,5];
+//Call a API and manipulation of the DOM
+let time = (date)=> {
+    const API = './src/data.json';
+    for(let i = 0; i <= 5; i++){
+        async function getData(){
+            const response = await fetch(API);
+            const result = await response.json();
+            return result.profile[i].timeframes;
+        }
+        getData()
+            .then((give)=> {
+                switch (date) {
+                    case 'daily':
+                        let hour = arrayhours[i].innerHTML = give.daily.current+`hrs`;
+                        let last = arraylast[i].innerHTML = 'Yesterday-' + give.daily.previous+`hrs`;
+                        return hour, last;
+                        break;
+                     case 'weekly':
+                         let hour1 = arrayhours[i].innerHTML = give.weekly.current+`hrs`;
+                         let last1 = arraylast[i].innerHTML = 'Last Week -' + give.weekly.previous+`hrs`;
+                         return hour1, last1;
+                         break;
+                     case 'monthly':
+                         let hour2 = arrayhours[i].innerHTML = give.monthly.current+`hrs`;
+                         let last2 = arraylast[i].innerHTML = 'Last Month -' + give.monthly.previous+`hrs`;
+                         return hour2, last2;
+                         break;
+                    default:
+                        console.error(`this option isn't correct`)
+                        break;
+                }
+            })
+            .catch((err) => console.error(err))
+    }};
 
-answer.forEach((item)=> {
-    async function getData(position, date){
-        const response = await fetch(API);
-        const result = await response.json();
-        let give = result.profile[position].timeframes
-       switch (date) {
-           case 'daily':
-               let hora = arrayhours[position].innerHTML = give.daily.current+`hrs`;
-               let last = arraylast[position].innerHTML = 'Yesterday-' + give.daily.previous+`hrs`;
-               return hora, last;
-               break;
-            case 'weekly':
-                let hora1 = arrayhours[position].innerHTML = give.weekly.current+`hrs`;
-                let last1 = arraylast[position].innerHTML = 'Last Week -' + give.weekly.previous+`hrs`;
-                return hora1, last1;
-                break;
-            case 'monthly':
-                let hora2 = arrayhours[position].innerHTML = give.monthly.current+`hrs`;
-                let last2 = arraylast[position].innerHTML = 'Last Month -' + give.monthly.previous+`hrs`;
-                return hora2, last2;
-                break;
-           default:
-               console.log('eeor')
-               break;
-       }
-    }
-    getData(item, get)
-        .then((resp)=> console.log('Éxito'))
-        .catch((err) => console.log(err))
-})}
-
-function time(date){
-    moment(date)
-}
+    
