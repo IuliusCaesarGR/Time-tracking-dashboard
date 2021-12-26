@@ -48,19 +48,13 @@ let time = (date)=> {
             .then((give)=> {
                 switch (date) {
                     case 'daily':
-                        let hour = arrayhours[i].innerHTML = give.daily.current+`hrs`;
-                        let last = arraylast[i].innerHTML = 'Yesterday-' + give.daily.previous+`hrs`;
-                        return hour, last;
+                        changeText(give.daily, i);
                         break;
                      case 'weekly':
-                         let hour1 = arrayhours[i].innerHTML = give.weekly.current+`hrs`;
-                         let last1 = arraylast[i].innerHTML = 'Last Week -' + give.weekly.previous+`hrs`;
-                         return hour1, last1;
+                        changeText(give.weekly, i);
                          break;
                      case 'monthly':
-                         let hour2 = arrayhours[i].innerHTML = give.monthly.current+`hrs`;
-                         let last2 = arraylast[i].innerHTML = 'Last Month -' + give.monthly.previous+`hrs`;
-                         return hour2, last2;
+                        changeText(give.monthly, i);
                          break;
                     default:
                         console.error(`this option isn't correct`)
@@ -69,5 +63,8 @@ let time = (date)=> {
             })
             .catch((err) => console.error(err))
     }};
-
-    
+//change text 
+function changeText(time, p){
+    arrayhours[p].textContent = time.current+`hrs`;
+    arraylast[p].textContent = 'Yesterday-' + time.previous+`hrs`;
+}
