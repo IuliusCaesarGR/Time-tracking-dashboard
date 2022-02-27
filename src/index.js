@@ -35,7 +35,7 @@ arraybuttons.forEach( (id) => {
         }
     }
 })
-//Call a API and manipulation of the DOM
+//Call an API and manipulation of the DOM
 let time = (date)=> {
     const API = './src/data.json';
     for(let i = 0; i <= 5; i++){
@@ -63,8 +63,8 @@ let time = (date)=> {
             })
             .catch((err) => console.error(err))
     }};
-//change text 
-function changeText(time, p){
-    arrayhours[p].textContent = time.current+`hrs`;
-    arraylast[p].textContent = 'Yesterday-' + time.previous+`hrs`;
+//change text
+function changeText(time, position){
+    arrayhours[position].textContent = time.current+`hrs`;
+    arraylast[position].textContent = 'Yesterday-' + time.previous+`hrs`;
 }

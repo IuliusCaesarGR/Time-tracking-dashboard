@@ -8,13 +8,13 @@ main{
     height: 1300px;
     display:  grid;
     grid-template: 220px repeat(6, 180px) / repeat(1, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
         "profile"
         "work"
         "play"
         "study"
         "exercise"
-        "social" 
+        "social"
         "self" ;
     justify-items: center;
     //display tablet
@@ -24,7 +24,7 @@ main{
     height: auto;
     margin: 60px auto;
     grid-template:  225px repeat(3, 185px) / repeat(2, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
     "profile profile"
     "work play"
     "study exercise"
