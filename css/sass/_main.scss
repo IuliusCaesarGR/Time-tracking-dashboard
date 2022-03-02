@@ -5,9 +5,9 @@ body{
 main{
     margin: 50px 0;
     width: 100vw;
-    height: 1300px;
+    height: 1500px;
     display:  grid;
-    grid-template: 220px repeat(6, 180px) / repeat(1, 1fr);
+    grid-template: 235px repeat(5, 200px)  / repeat(1, 1fr);
     grid-template-areas:
         "profile"
         "work"
@@ -15,15 +15,15 @@ main{
         "study"
         "exercise"
         "social"
-        "self" ;
+        "self";
     justify-items: center;
     //display tablet
   @media (min-width: 600px){
-    width: 95%;
-    max-width: 768px;
+    width: 100%;
+    max-width: 800px;
     height: auto;
     margin: 60px auto;
-    grid-template:  225px repeat(3, 185px) / repeat(2, 1fr);
+    grid-template:  230px repeat(3, 1fr) / repeat(2, 1fr);
     grid-template-areas:
     "profile profile"
     "work play"
@@ -35,23 +35,24 @@ main{
       width: 95%;
       height: 850px;
       margin: 0 auto;
-      max-width: 1100px;
-      grid-template: repeat(2,260px) / repeat(4, 1fr);
+      max-width: 1170px;
+      grid-template: repeat(2,265px) / 250px repeat(3, 1fr);
       column-gap: 25px;
       place-content: center;
-      grid-template-areas: 
+      grid-template-areas:
       "profile work play study"
       "profile exercise social self";
     }
 }
 
 //footer
-.attribution { 
-  font-size: 16px; 
-  text-align: center; 
+.attribution {
+  width: 90%;
+  font-size: 16px;
+  text-align: center;
   color: $color-text;
   a{
-    color: $color-attribution; 
+    color: $color-attribution;
   }
   margin-bottom: 30px
 }
@@ -59,53 +60,25 @@ main{
 //Cards
 //--Profile
 .profile{
-  @include profile;
   grid-area: profile;
-  background-color: $color-fill;
-  &__info{
-    background-color: $color-profile
-  }
 }
 //sessions
 .work{
-   @include cards;
-   grid-area: work;
-   &__background{
-       background-color: $color-work;
-   }
+  grid-area: work;
+
 }
 .play{
-  @include cards;
   grid-area: play;
-  &__background{
-    background-color: $color-play;
-  }
 }
 .study{
-    @include cards;
     grid-area: study;
-    &__background{
-    background-color: $color-study;
   }
-}
 .exercise{
-    @include cards;
     grid-area: exercise;
-    &__background{
-    background-color: $color-exercise;
-  }
 }
 .social{
-    @include cards;
     grid-area: social;
-    &__background{
-    background-color: $color-social;
-  }
 }
 .self{
-    @include cards;
     grid-area: self;
-    &__background{
-    background-color: $color-self_care;
-  }
-} 
+}
