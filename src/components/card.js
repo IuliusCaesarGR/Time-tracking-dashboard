@@ -154,7 +154,7 @@ window.customElements.define('card-session', class session extends HTMLElement{
             <section class="statistics"">
                 <div class="head">
                     <p>${this.title}</p>
-                    <figure><img src="/images/icon-ellipsis.svg" alt="icon of ellipsis"></figure>
+                    <figure><img src="./images/icon-ellipsis.svg" alt="icon of ellipsis"></figure>
                 </div>
                 <div class="date">
                     <slot name="hour" id="hour"><p></p></slot>
