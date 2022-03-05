@@ -44,7 +44,6 @@ main{
       "profile exercise social self";
     }
 }
-
 //footer
 .attribution {
   width: 90%;
@@ -65,20 +64,19 @@ main{
 //sessions
 .work{
   grid-area: work;
-
 }
 .play{
   grid-area: play;
 }
 .study{
-    grid-area: study;
-  }
+  grid-area: study;
+}
 .exercise{
-    grid-area: exercise;
+  grid-area: exercise;
 }
 .social{
-    grid-area: social;
+  grid-area: social;
 }
 .self{
-    grid-area: self;
+  grid-area: self;
 }

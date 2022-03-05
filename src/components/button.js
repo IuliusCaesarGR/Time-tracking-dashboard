@@ -6,20 +6,24 @@ export class boton extends HTMLElement{
         this.attachShadow( { mode: "open" } );
     }
     static get observedAttributes(){
-        return [ "time" ];
+        return [ 'time'];
     }
     attributeChangedCallback(attribute, oldvalue, newvalue){
-        this.time = newvalue;
+        switch(attribute){
+            case 'time':
+                this.time = newvalue;
+                break;
+            default:
+                console.log('Error');
+                break;
+        }
     }
     style(){
         return `
         <style>
-        ::slotted([white]){
-            color: white;
-        }
         button{
-            display: inline-block;
             color: hsl(235, 45%, 61%);
+            display: inline-block;
             margin-top: 20px;
             font-weight: 400;
             border: none;
@@ -43,20 +47,13 @@ export class boton extends HTMLElement{
                 height: 45px;
             }
         }
-
         </style>
         `;
-    }
-    hi(){
-        this.addEventListener('click', hello)
-        function hello(){
-            console.log('¡Hello, World!')
-        }
     }
     template(){
         let boton = document.createElement('template');
         boton.innerHTML = `
-            <button onclick="${this.hi()}">${this.time}</button>
+            <button>${this.time}</button>
             ${this.style()}
         `;
         return boton;

@@ -9,7 +9,7 @@ class profile extends HTMLElement{
         this.attachShadow( { mode: "open" } );
     }
     static get observedAttributes(){
-        return [ 'userImage', 'userName' ];
+        return [ 'userImage', 'userName'];
     }
     attributesChangesCallback(attr, oldVa, newVa){
         switch(attr){
@@ -28,7 +28,6 @@ class profile extends HTMLElement{
         return`
         <style>
             :host{
-                color: white;
                 box-sizing: border-box;
                 margin: 0;
             }
@@ -40,7 +39,7 @@ class profile extends HTMLElement{
             .cont{
                 width: 90vw;
                 max-width: 410px;
-                min-width: 320px;
+                min-width: 265px;
                 height: 200px;
                 border-radius: 12px;
                 display: flex;
@@ -58,6 +57,9 @@ class profile extends HTMLElement{
                 color: white;
                 font-weight: 300;
                 background-color: hsl(246, 80%, 60%);
+            }
+            .user_info div{
+                width: 55%;
             }
             .report{
                 font-size: 16px;

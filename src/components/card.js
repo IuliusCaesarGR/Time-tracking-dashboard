@@ -60,7 +60,7 @@ window.customElements.define('card-session', class session extends HTMLElement{
                 z-index: 1;
                 background-color: hsl(235, 46%, 20%);
                 border-radius: 12px;
-                padding: 25px 25px;
+                padding: 25px 20px 25px 25px;
                 box-sizing: border-box;
                 cursor: pointer;
             }

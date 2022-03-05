@@ -1,33 +1,30 @@
 //Get Elements
-const buttons = document.querySelectorAll('button');
-const arraybuttons = [...buttons];
-const hours = document.querySelectorAll('.hours');
-const arrayhours = [...hours];
-const last = document.querySelectorAll('.lastweek');
-const arraylast = [...last];
+const arraybuttons = [...document.querySelectorAll('time-button')];
+const arrayhours = [...document.querySelectorAll('#hour')];
+const arraylast = [...document.querySelectorAll('#last')];
 
-//Change color of the option
+/* //Change color of the option
 function changeColor(option, remove1, remove2){
-    option.style.color = 'white';
+    option.styles.style.color = 'white';
     remove1.style.color = 'hsl(235, 45%, 61%)';
     remove2.style.color = 'hsl(235, 45%, 61%)';
-}
+} */
 //listen which option was pressed
 arraybuttons.forEach( (id) => {
     id.addEventListener('click', selector);
     function selector(){
-        switch (id.id) {
+        switch (id.time) {
             case 'Daily':
                 time('daily')
-                changeColor(id, arraybuttons[1], arraybuttons[2])
+                /* changeColor(id, arraybuttons[1], arraybuttons[2]) */
                 break;
             case 'Weekly':
                 time('weekly')
-                changeColor(id, arraybuttons[0], arraybuttons[2])
+                /* changeColor(id, arraybuttons[0], arraybuttons[2]) */
                 break;
             case 'Monthly':
                 time('monthly')
-                changeColor(id, arraybuttons[0], arraybuttons[1])
+                /* changeColor(id, arraybuttons[0], arraybuttons[1]) */
                 break;
             default:
                 console.log('error')
@@ -50,12 +47,12 @@ let time = (date)=> {
                     case 'daily':
                         changeText(give.daily, i);
                         break;
-                     case 'weekly':
+                    case 'weekly':
                         changeText(give.weekly, i);
-                         break;
-                     case 'monthly':
+                        break;
+                    case 'monthly':
                         changeText(give.monthly, i);
-                         break;
+                        break;
                     default:
                         console.error(`this option isn't correct`)
                         break;
